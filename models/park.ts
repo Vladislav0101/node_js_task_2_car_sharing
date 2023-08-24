@@ -1,10 +1,9 @@
-import { DateType, Nullable } from "./common";
 import { User } from "./users";
 
 export interface CarProduction {
   brand: string;
   model: string;
-  date: DateType;
+  date: string;
   tankVolume: number;
 }
 
@@ -16,15 +15,15 @@ export type CarStatus =
   | "in service";
 
 export interface StartRun {
-  startDate: DateType;
+  startDate: string;
   startFuelLevel: number;
   startMilage: number;
 }
 
 export interface FinishRun {
-  endDate: Nullable<DateType>;
-  endFuelLevel: Nullable<number>;
-  endMilage: Nullable<number>;
+  endDate: string;
+  endFuelLevel: number;
+  endMilage: number;
 }
 
 export interface CurrentRun extends StartRun, FinishRun {
@@ -33,12 +32,12 @@ export interface CurrentRun extends StartRun, FinishRun {
 
 export interface Car {
   vin: number;
-  registrationNumber: number | string;
+  registrationNumber: number;
   productionInfo: CarProduction;
   status: CarStatus;
   fuelLevel: number;
   mileage: number;
-  location: object; // geoJson
+  location: string; // geoJson
   bookingsHistory: CurrentRun[];
 }
 
