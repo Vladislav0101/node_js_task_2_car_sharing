@@ -13,8 +13,8 @@ const getAllUsers = async (req: Request, res: Response) => {
 };
 
 const createUser = async (req: Request, res: Response) => {
-  const userInfo: User = req.body;
-  const validation = userValidation.validate(userInfo);
+  const newUser: User = req.body;
+  const validation = userValidation.validate(newUser);
 
   if (validation.error) {
     const errorsString = getErrorMessages(validation.error.details);
@@ -22,8 +22,7 @@ const createUser = async (req: Request, res: Response) => {
     return res.status(400).send(errorsString);
   }
 
-  const user = await UserModel.create(req.body);
-
+  const user = await UserModel.create(newUser);
   res.status(200).send(user);
 };
 
