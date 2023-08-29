@@ -3,16 +3,11 @@ import { User } from "./users";
 export interface CarProduction {
   brand: string;
   model: string;
-  date: string;
+  date: Date;
   tankVolume: number;
 }
 
-export type CarStatus =
-  | "free"
-  | "reserved"
-  | "in use"
-  | "unavailable"
-  | "in service";
+export type CarStatus = "reserved" | "in use" | "unavailable" | "in service";
 
 export interface StartRun {
   startDate: string;
@@ -26,7 +21,11 @@ export interface FinishRun {
   endMilage: number;
 }
 
-export interface CurrentRun extends StartRun, FinishRun {
+export interface CurrentRun extends StartRun {
+  driver: User;
+}
+
+export interface HistoryRun extends StartRun, FinishRun {
   driver: User;
 }
 
@@ -37,8 +36,7 @@ export interface Car {
   status: CarStatus;
   fuelLevel: number;
   mileage: number;
+  currentRun?: CurrentRun;
   location: string; // geoJson
-  bookingsHistory: CurrentRun[];
+  bookingHistory: HistoryRun[];
 }
-
-export interface BusyCar extends CurrentRun, Car {}

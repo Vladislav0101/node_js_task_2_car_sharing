@@ -2,7 +2,7 @@ export interface CreditCard {
   _id?: string;
   number: number;
   owner: string;
-  validThrough: string;
+  validThrough: Date;
 }
 
 export interface User {
