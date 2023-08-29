@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { UserModel } from "../../models/dataBaseModels/users.models";
+import { UserModel } from "../../models/DBModels/users.models";
 import { CreditCard } from "../../models/users";
 
 import { creditCardValidation } from "../../validations/users/users.validation";
