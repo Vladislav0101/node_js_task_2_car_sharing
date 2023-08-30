@@ -64,7 +64,7 @@ const startRun = async (req: Request, res: Response) => {
   car.status = CAR_STATUSES.reserved;
   car.currentRun = {
     driver: user,
-    startDate: new Date().toDateString(),
+    startDate: new Date(),
     startFuelLevel: car?.fuelLevel,
     startMilage: car?.mileage,
   };
@@ -92,7 +92,7 @@ const endRun = async (req: Request, res: Response) => {
     startDate,
     startFuelLevel,
     startMilage,
-    endDate: new Date().toDateString(),
+    endDate: new Date(),
     endFuelLevel: bookedCar.fuelLevel,
     endMilage: bookedCar.mileage,
   };

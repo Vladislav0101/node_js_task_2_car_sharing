@@ -8,7 +8,6 @@ import getErrorMessages from "../../utils/validations/getErrorMessagesFromValida
 
 const getAllUsers = async (req: Request, res: Response) => {
   const allUsers = await UserModel.find();
-
   res.status(200).send(allUsers);
 };
 

@@ -3,7 +3,7 @@ import { Router } from "express";
 import {
   getUserById,
   addCard,
-} from "../../controllers/users/specialUser.controllers";
+} from "../../controllers/users/uniqueUser.controllers";
 
 const user = Router({ mergeParams: true });
 

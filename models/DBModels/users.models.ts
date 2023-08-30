@@ -12,7 +12,7 @@ const UserSchema = new Schema<User>({
     type: {
       number: Number,
       owner: String,
-      validThrough: String,
+      validThrough: Date,
     },
   },
 });

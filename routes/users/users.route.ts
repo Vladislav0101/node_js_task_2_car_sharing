@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import specialUserRouter from "./specialUser.route";
+import uniqueUserRouter from "./uniqueUser.route";
 import {
   createUser,
   getAllUsers,
@@ -12,6 +12,6 @@ usersRouter.get("/all", getAllUsers);
 
 usersRouter.post("/create-user", createUser);
 
-usersRouter.use("/:userId", specialUserRouter);
+usersRouter.use("/:userId", uniqueUserRouter);
 
 export default usersRouter;

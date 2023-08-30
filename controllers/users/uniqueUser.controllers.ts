@@ -8,8 +8,8 @@ import getErrorMessages from "../../utils/validations/getErrorMessagesFromValida
 
 const getUserById = async (req: Request, res: Response) => {
   const userId = req.params["userId"];
-
   const user = await UserModel.findById(userId);
+
   res.status(200).send(user);
 };
 

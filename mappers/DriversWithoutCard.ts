@@ -13,7 +13,7 @@ interface MapInterface extends DriverInfo {
 
 export default (cars: Car[]) =>
   cars.reduce((driversWithoutCard: MapInterface[], car: Car) => {
-    const mapper = ({ firstName, lastName, licenseNumber }: DriverInfo) => ({
+    const map = ({ firstName, lastName, licenseNumber }: DriverInfo) => ({
       vin: car.vin,
       location: car.location,
       firstName,
@@ -22,11 +22,11 @@ export default (cars: Car[]) =>
     });
 
     if (car.currentRun && !car?.currentRun?.driver?.creditCard?.number)
-      driversWithoutCard.push(mapper(car.currentRun.driver));
+      driversWithoutCard.push(map(car.currentRun.driver));
 
     car.bookingHistory.forEach((run) => {
       if (!run.driver.creditCard?.number)
-        driversWithoutCard.push(mapper(run.driver));
+        driversWithoutCard.push(map(run.driver));
     });
 
     return driversWithoutCard;

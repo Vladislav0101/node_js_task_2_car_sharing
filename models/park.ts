@@ -10,13 +10,13 @@ export interface CarProduction {
 export type CarStatus = "reserved" | "in use" | "unavailable" | "in service";
 
 export interface StartRun {
-  startDate: string;
+  startDate: Date;
   startFuelLevel: number;
   startMilage: number;
 }
 
 export interface FinishRun {
-  endDate: string;
+  endDate: Date;
   endFuelLevel: number;
   endMilage: number;
 }

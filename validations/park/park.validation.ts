@@ -9,7 +9,7 @@ export const carValidation = Joi.object({
   productionInfo: Joi.object({
     brand: Joi.string().required(),
     model: Joi.string().required(),
-    date: Joi.string().required(),
+    date: Joi.date().required(),
     tankVolume: Joi.number().required(),
   }).required(),
 
@@ -19,7 +19,7 @@ export const carValidation = Joi.object({
 
   currentRun: Joi.object({
     driver: userValidation,
-    startDate: Joi.string().required(),
+    startDate: Joi.date().required(),
     startFuelLevel: Joi.number().required(),
     startMilage: Joi.number().required(),
   }),
@@ -30,10 +30,10 @@ export const carValidation = Joi.object({
     .items(
       Joi.object({
         driver: userValidation,
-        startDate: Joi.string().required(),
+        startDate: Joi.date().required(),
         startFuelLevel: Joi.number().required(),
         startMilage: Joi.number().required(),
-        endDate: Joi.string().required(),
+        endDate: Joi.date().required(),
         endFuelLevel: Joi.number().required(),
         endMilage: Joi.number().required(),
       })
