@@ -44,7 +44,7 @@ const putTwiceBooked = async (req: Request, res: Response) => {
       $or: [{ status: CAR_STATUSES.inUse }, { status: CAR_STATUSES.reserved }],
     },
     {
-      location: "JOPA",
+      location: { latitude: 53.8882836, longitude: 27.5442615 },
     }
   );
 
