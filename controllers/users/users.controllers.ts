@@ -21,6 +21,12 @@ const createUser = async (req: Request, res: Response) => {
     return res.status(400).send(errorsString);
   }
 
+  const sameUser = await UserModel.findOne({
+    licenseNumber: newUser.licenseNumber,
+  });
+  if (sameUser)
+    return res.status(200).send("Such a user has already been created");
+
   const user = await UserModel.create(newUser);
   res.status(200).send(user);
 };
