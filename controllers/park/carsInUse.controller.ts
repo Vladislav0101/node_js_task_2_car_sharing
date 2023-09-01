@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 
-import { Car } from "../../models/park";
 import { CarModel } from "../../models/DBModels/park.models";
 import { UserModel } from "../../models/DBModels/users.models";
 
@@ -41,7 +40,7 @@ const putTwiceBooked = async (req: Request, res: Response) => {
   const data = await CarModel.updateMany(
     {
       "bookingHistory.2": { $exists: true },
-      $or: [{ status: CAR_STATUSES.inUse }, { status: CAR_STATUSES.reserved }],
+      $nor: [{ status: CAR_STATUSES.inUse }, { status: CAR_STATUSES.reserved }],
     },
     {
       location: { latitude: 53.8882836, longitude: 27.5442615 },

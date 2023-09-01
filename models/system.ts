@@ -1,4 +1,4 @@
-interface Context {
+interface ErrorContext {
   [key: string]: any;
   key?: string;
   label?: string;
@@ -9,5 +9,5 @@ export interface ValidationErrorItem {
   message: string;
   path: Array<string | number>;
   type: string;
-  context?: Context;
+  context?: ErrorContext;
 }
