@@ -24,7 +24,10 @@ export const carValidation = Joi.object({
     startMilage: Joi.number().required(),
   }),
 
-  location: Joi.string().required(),
+  location: Joi.object({
+    latitude: Joi.number().required(),
+    longitude: Joi.number().required(),
+  }).required(),
 
   bookingHistory: Joi.array()
     .items(

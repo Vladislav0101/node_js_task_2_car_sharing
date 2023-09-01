@@ -7,6 +7,11 @@ export interface CarProduction {
   tankVolume: number;
 }
 
+export interface GeoJson {
+  latitude: number;
+  longitude: number;
+}
+
 export type CarStatus = "reserved" | "in use" | "unavailable" | "in service";
 
 export interface StartRun {
@@ -37,6 +42,6 @@ export interface Car {
   fuelLevel: number;
   mileage: number;
   currentRun?: CurrentRun;
-  location: string; // geoJson
+  location: GeoJson;
   bookingHistory: HistoryRun[];
 }

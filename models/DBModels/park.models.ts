@@ -38,7 +38,13 @@ const CarSchema = new Schema<Car>({
     },
   },
 
-  location: { type: String, required: true },
+  location: {
+    type: {
+      latitude: Number,
+      longitude: Number,
+    },
+    required: true,
+  },
   bookingHistory: {
     type: [
       {

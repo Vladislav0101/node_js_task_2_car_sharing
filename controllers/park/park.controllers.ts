@@ -26,6 +26,17 @@ const addNewCar = async (req: Request, res: Response) => {
     return res.status(400).send(errorsString);
   }
 
+  const sameCar = await CarModel.findOne({
+    $or: [
+      { vin: newCar.vin },
+      { registrationNumber: newCar.registrationNumber },
+    ],
+  });
+  if (sameCar)
+    return res
+      .status(200)
+      .send("A Car with similar properties has already been created");
+
   const car: Car = await CarModel.create(newCar);
   res.status(200).send(car);
 };

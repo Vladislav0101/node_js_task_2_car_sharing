@@ -1,4 +1,4 @@
-import { Car } from "../models/park";
+import { Car, GeoJson } from "../models/park";
 
 interface DriverInfo {
   firstName: string;
@@ -8,7 +8,7 @@ interface DriverInfo {
 
 interface MapInterface extends DriverInfo {
   vin: number;
-  location: string;
+  location: GeoJson;
 }
 
 export default (cars: Car[]) =>
