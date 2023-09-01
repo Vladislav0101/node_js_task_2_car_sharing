@@ -1,7 +1,6 @@
 import { Router } from "express";
 
 import carsInUseRouter from "./carsInUse.route";
-// import parkService from "./parkService.route";
 
 import {
   getAllCars,
@@ -14,14 +13,12 @@ const parkRouter = Router();
 
 parkRouter.use("/cars-in-use", carsInUseRouter);
 
-// parkRouter.use("/service", parkService);
-
 parkRouter.get("/all-cars", getAllCars);
 
-parkRouter.post("/add-new-car", addNewCar); // http request to add new car in the car sharing park.
+parkRouter.post("/add-new-car", addNewCar);
 
-parkRouter.put("/used-cars-to-service", sentUsedCarsToService); // http request to update any car produced before '01/01/2017' or has mileage greater than 100000 km by setting Status to *In Service*.
+parkRouter.put("/used-cars-to-service", sentUsedCarsToService);
 
-parkRouter.delete("/:vin/delete-car", deleteCar); // http request to remove car by VIN
+parkRouter.delete("/:vin/delete-car", deleteCar);
 
 export default parkRouter;
